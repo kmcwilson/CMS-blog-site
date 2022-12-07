@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS Blog</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="/css/jass.css">
+</head>
+<body>
+    <section>
+        <div class="columns">
+            <div class="column is-three-fifths">
+                <h1>The Tech Talk</h1>
+            </div>
+            <div class="column is-two-fifths">
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <div class="navbar-end">
+                        <a class="navbar-item">
+                            Home
+                        </a>
+                        <a class="navbar-item">
+                           Dashboard
+                        </a>
+                        <a class="navbar-item">
+                           Login
+                        </a>
+                        {{#if loggedIn}}
+                        <button class="button is-link">Logout</button>
+                        {{/if}}
+                    </div>
+                </nav>
+            </div>
+    </section>
+<section>
+    {{{body}}}
+</section>
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
