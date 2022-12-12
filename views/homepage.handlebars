@@ -1,11 +1,12 @@
 <section>
-    {{#each blogs as |blog|}}
+    {{#each allBlogs as |blog|}}
     <div class="card">
         <a href="/blog/{{id}}">
-            <header id="user-name">{{user_name}}</header>
+            <header id="user-name">{{name}}</header>
             <div class ="card-content">
                 <p>{{post}}</p>
             </div>
         </a>
     </div>
+    {{/each}}
 </section>
