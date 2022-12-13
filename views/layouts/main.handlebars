@@ -14,7 +14,7 @@
       <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
         <div class="container">
           <div class="navbar-brand">
-            <h1 class="web-header title">CMS Blog Forum</h1>
+            <h1 class="web-header title">The Tech Talk</h1>
             <span class="navbar-burger" aria-label="menu" data-target="navbarMenuHeroA">
               <span></span>
               <span></span>
@@ -23,16 +23,15 @@
           </div>
           <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
-              {{#if loggedIn}}
               <a class="navbar-item has-text-white-bis has-background-dark" href="/">Home</a>
-              <a class="navbar-item has-text-white-bis has-background-dark" href="/attractions/add">
-                Add new attraction
+              <a class="navbar-item has-text-white-bis has-background-dark" href="/blog/add">
+                Dashboard
               </a>
-              <button class="navbar-item button has-background-grey-light" id="logout">Logout</button>
-              {{else}}
               <a class="navbar-item" href="/login">
                 Log In
               </a>
+              {{#if loggedIn}}
+              <button class="navbar-item button has-background-grey-light" id="logout">Logout</button>
               {{/if}}
             </div>
           </div>
@@ -67,8 +66,8 @@
 <section>
     {{{body}}}
 </section>
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+  {{#if loggedIn}}
+  <script src="/public/js/logout.js"></script>
   {{/if}}
 </body>
 

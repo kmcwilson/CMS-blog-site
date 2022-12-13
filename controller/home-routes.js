@@ -4,7 +4,7 @@ const { User, Blog } = require('../models');
 const withAuth = require('../utils/auth')
 
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const dbBlogs = await Blog.findAll({
             include: [
@@ -43,18 +43,19 @@ router.get('/blog/:id', withAuth, async (req, res) => {
 
         });
         const blog = dbBlog.get({ plain: true });
-        res.render('oneBlog', { blog })
+        res.render('oneBlog', { blog, loggedIn: req.session.loggedIn })
     } catch (err) {
         console.log(err);
         res.render('error', { err });
     }
 });
-
+// Get help with this
 router.get('/blog/add', async (req, res)=>{
     try {
       const dbUser = await User.findAll();
       const users = dbUser.map(user=>user.get({plain:true}));
       const dbBlogs = await Blog.findAll({})
+      res.render('dashboard', {users, dbBlogs, loggedIn: req.session.loggedIn})
     } catch(err){
         console.log(err);
         res.render('error', {err});
