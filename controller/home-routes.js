@@ -4,7 +4,7 @@ const { User, Blog } = require('../models');
 const withAuth = require('../utils/auth')
 
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const dbBlogs = await Blog.findAll({
             include: [
@@ -19,6 +19,7 @@ router.get('/', withAuth, async (req, res) => {
         const allBlogs = dbBlogs.map((blogs) =>
             blogs.get({ plain: true })
         );
+        console.log('allBlogs:', allBlogs)
         res.render('homepage', {
             allBlogs
         });
