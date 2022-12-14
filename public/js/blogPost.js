@@ -7,7 +7,7 @@ const addPost = async (event)=> {
     const blogPost = document.getElementById('blog-post');
 
     if ( blogTitle && blogPost ){
-        const response = await fetch('/controller/api/blog-routes.js', {
+        const response = await fetch('../../controller/api/blog-routes.js', {
             method: 'POST', 
             body: JSON.stringify({
                 title: blogTitle.value,
@@ -24,3 +24,5 @@ const addPost = async (event)=> {
         }
     }
 }
+
+submit.addEventListener("click", (addPost))

@@ -27,11 +27,12 @@
               <a class="navbar-item has-text-white-bis has-background-dark" href="/blog/add">
                 Dashboard
               </a>
-              <a class="navbar-item" href="/login">
-                Log In
-              </a>
               {{#if loggedIn}}
-              <button class="navbar-item button has-background-grey-light" id="logout">Logout</button>
+                <button class="navbar-item button has-background-grey-light" id="logout">Logout</button>
+              {{else}}
+                <a class="navbar-item" href="/login">
+                  Log In
+                </a>             
               {{/if}}
             </div>
           </div>
@@ -39,35 +40,11 @@
       </nav>
     </div>
   </section>
-    {{!-- <section>
-        <div class="columns">
-            <div class="column is-three-fifths">
-                <h1>The Tech Talk</h1>
-            </div>
-            <div class="column is-two-fifths">
-                <nav class="navbar" role="navigation" aria-label="main navigation">
-                    <div class="navbar-end">
-                        <a class="navbar-item">
-                            Home
-                        </a>
-                        <a class="navbar-item">
-                           Dashboard
-                        </a>
-                        <a class="navbar-item">
-                           Login
-                        </a>
-                        {{#if loggedIn}}
-                        <button class="button is-link">Logout</button>
-                        {{/if}}
-                    </div>
-                </nav>
-            </div>
-    </section> --}}
-<div>
+
     {{{body}}}
-</div>
+
   {{#if loggedIn}}
-  <script src="/public/js/logout.js"></script>
+  <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 

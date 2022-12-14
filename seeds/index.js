@@ -5,9 +5,9 @@ const userSeed = require('./userSeeds');
 const seedBlogs = async () => {
   await sequelize.sync({ force: true });
 
+  await userSeed();
   await blogSeed();
 
-  await userSeed();
 
   process.exit(0);
 };

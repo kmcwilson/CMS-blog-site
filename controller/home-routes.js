@@ -19,15 +19,32 @@ router.get('/', async (req, res) => {
         const allBlogs = dbBlogs.map((blogs) =>
             blogs.get({ plain: true })
         );
-        console.log('allBlogs:', allBlogs)
         res.render('homepage', {
-            allBlogs
+            allBlogs,
+            loggedIn: req.session.loggedIn          
         });
     } catch (err) {
         console.log(err)
-        res.render('error', { err });
+        res.render('error', { err,  loggedIn: req.session.loggedIn });
     }
 
+});
+
+// Get help with this
+router.get('/blog/add', withAuth, async (req, res)=>{  
+    try {
+        const dbUser = await User.findAll();
+        const users = dbUser.map(user=>user.get({plain:true}));
+        const dbBlogs = await Blog.findAll({})
+        res.render('dashboard', {
+            users, dbBlogs,
+            loggedIn: req.session.loggedIn
+        })
+    } catch(err){
+        console.log(err);
+        res.render('error', {err, loggedIn: req.session.loggedIn});
+    }
+    
 });
 
 router.get('/blog/:id', withAuth, async (req, res) => {
@@ -43,26 +60,19 @@ router.get('/blog/:id', withAuth, async (req, res) => {
             ],
 
         });
-        const blog = dbBlog.get({ plain: true });
-        res.render('oneBlog', { blog, loggedIn: req.session.loggedIn })
+        // // if (!dbBlog) {
+        // //     res.render('comments', {blog: [], loggedIn: req.session.loggedIn});
+        // // }
+        // else {
+            const blog = dbBlog.get({ plain: true });
+            res.render('comments', { blog, loggedIn: req.session.loggedIn });
+    // }
     } catch (err) {
         console.log(err);
         res.render('error', { err });
     }
 });
-// Get help with this
-router.get('/blog/add', async (req, res)=>{
-    try {
-      const dbUser = await User.findAll();
-      const users = dbUser.map(user=>user.get({plain:true}));
-      const dbBlogs = await Blog.findAll({})
-      res.render('dashboard', {users, dbBlogs, loggedIn: req.session.loggedIn})
-    } catch(err){
-        console.log(err);
-        res.render('error', {err});
-    }
-   
-});
+
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {

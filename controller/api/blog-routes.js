@@ -3,7 +3,7 @@ const withAuth = require('../../utils/auth');
 const router = require('express').Router();
 
 
-router.post('/blogPost', withAuth , async (req, res) => {
+router.post('/blog/add', withAuth, async (req, res) => {
     try {
         const dbPostData = await Blog.create({
             user_id: req.session.user_id,
