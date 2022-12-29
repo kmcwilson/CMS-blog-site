@@ -2,14 +2,15 @@ const { Blog } = require('../../models');
 const withAuth = require('../../utils/auth');
 const router = require('express').Router();
 
-
-router.post('/blog/add', withAuth, async (req, res) => {
+//Does this need to be just add instead?
+router.post('/', withAuth, async (req, res) => {
     try {
         const dbPostData = await Blog.create({
-            user_id: req.session.user_id,
+            user_id: req.session.userId,
             title: req.body.title,
             post: req.body.post,
         });
+        console.log(dbPostData);
         res.status(200).json(dbPostData);
     } catch (err) {
         console.log(err);

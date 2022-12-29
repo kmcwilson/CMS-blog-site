@@ -1,12 +1,18 @@
 <section>
-    <div class="control">
-        <h3>Title</h3>
-        <textarea id= "blog-title "class="textarea" placeholder="Blog Title"></textarea>
+    <h1>Your Posts</h1>
+    {{#each posts as |post|}}
+    <div class="card">
+        <a href="/blog/{{id}}">
+            <header id="user-name">{{user.name}}</header>
+            <div class="card-content">
+                <p>{{post.post}}</p>
+            </div>
+        </a>
     </div>
-    <div class="control">
-        <h3>Content</h3>
-        <textarea id = "blog-post"class="textarea" placeholder="Blog Post"></textarea>
+    {{/each}}
+    <div>
+        <a href="blog/add">
+            <button id="new-post" class="button" type="submit">New Post</button>
+        </a>
     </div>
-    <button id= "add-blog" class="button" type="submit">Add Post</button>
-    <script src="/js/blogPost.js"></script>
 </section>

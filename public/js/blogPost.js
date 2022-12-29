@@ -7,7 +7,8 @@ const addPost = async (event)=> {
     const blogPost = document.getElementById('blog-post');
 
     if ( blogTitle && blogPost ){
-        const response = await fetch('../../controller/api/blog-routes.js', {
+        console.log('Hello');
+        const response = await fetch('/api/post', {
             method: 'POST', 
             body: JSON.stringify({
                 title: blogTitle.value,
@@ -17,7 +18,7 @@ const addPost = async (event)=> {
         })
         if (response.ok) {
             alert("Post has been successfully added to the forum!")
-            document.location.replace("/")
+            document.location.replace("/dashboard")
         }
         else {
             alert('Error occurred, failed to make post')
