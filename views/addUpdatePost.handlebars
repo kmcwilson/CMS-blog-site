@@ -1,0 +1,14 @@
+    <div class="control">
+        <h3>Title</h3>
+        <textarea id="blog-title"class="textarea" placeholder="Blog Title" value={{blog.title}}>{{blog.title}}</textarea>
+    </div>
+    <div class="control">
+        <h3>Content</h3>
+        <textarea id="blog-post"class="textarea" placeholder="Blog Post" >{{blog.post}}</textarea>
+    </div>
+    {{#if update}}
+    <button id="update-blog" class="button" type="submit" data-blogId={{blog.id}}>Update Post</button>
+    {{else}}
+    <button id="add-blog" class="button" type="submit">Add Post</button>
+    {{/if}}
+    <script src="/js/blogPost.js"></script>

@@ -1,13 +1,16 @@
 <h1> Add Comment</h1>
 <div class="card">
     <h2>{{blog.title}}</h2>
-    <h3> by {{name}}</h3>
     <div class="card-content">
-        <p>{{blog.post}}</p>
+        <ul>{{blog.post}}</ul>
+        {{#each blog.comments as |comment|}}
+        <li>{{comment.comment_post}} by {{comment.user.name}}</li>
+        {{/each}}
     </div>
     <div class="control">
         <h3>Comment</h3>
         <textarea id="blog-comment" class="textarea" placeholder="Blog Post"></textarea>
     </div>
-    <button id="add-comment" class="button" type="submit">Add Comment</button>
+    <button id="add-comment" class="button" type="submit" onClick="window.location.reload();" data-blogId={{blog.id}}>Add Comment</button>
 </div>
+<script src="/js/comment.js"></script>

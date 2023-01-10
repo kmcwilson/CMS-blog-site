@@ -1,8 +1,8 @@
-const { Blog } = require('../../models');
+const { Blog, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 const router = require('express').Router();
 
-//Does this need to be just add instead?
+//ADD blog Post
 router.post('/', withAuth, async (req, res) => {
     try {
         const dbPostData = await Blog.create({
@@ -17,33 +17,60 @@ router.post('/', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-router.delete('/:id', withAuth, async (req, res)=> {
-    try{
-        const dbPostData = await Blog.destroy({
+//Delete blog post
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+        await Blog.destroy({
+            where: {
+                id: req.params.id,
+            }
+        })
+        return res.status(200).end()
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err)
+    }
+});
+//UPDATE blog post
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const dbPostData = await Blog.update(req.body, {
             where: {
                 id: req.params.id,
             }
         })
         return res.status(200).json(dbPostData)
-    } catch (err){
+    } catch (err) {
         console.log(err)
         res.status(500).json(err)
     }
 });
+//ADD comment on post
+router.post('/:id', withAuth, async (req, res) => {
+    try {
+        const dbComment = await Comment.create({
+            blog_id: req.params.id,
+            user_id: req.session.userId,
+            comment_post: req.body.comment
+        })
+        return res.status(200).json(dbComment)
 
-router.put('/:id', withAuth, async (req, res)=>{
-    try{ 
-const dbPostData = await Blog.update({
-    where: {
-        id: req.params.id,
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err)
     }
 })
-return res.status(200).json(dbPostData)
-    }catch (err){
+
+router.get('/:id/comment', async (req, res) => {
+    try {
+        const dbComment = await Comment.findAll({
+
+        })
+        return res.status(200).json(dbComment)
+    } catch (err) {
         console.log(err)
         res.status(500).json(err)
     }
-});
+})
 
-module.exports= router;
+module.exports = router;

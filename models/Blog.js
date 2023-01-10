@@ -22,7 +22,7 @@ Blog.init(
         },
         date_created: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
             defaultValue: DataTypes.NOW,
         },
         user_id: {
@@ -37,7 +37,7 @@ Blog.init(
     },
     {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: `blog`

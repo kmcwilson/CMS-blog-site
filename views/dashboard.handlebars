@@ -6,8 +6,12 @@
             <header id="user-name">{{user.name}}</header>
             <div class="card-content">
                 <p>{{post.post}}</p>
-            </div>
         </a>
+        <button class="button delete-button" onClick="window.location.reload();" type="submit" data-blogId={{post.id}}>Delete post</button>
+         <a href="blog/update/{{id}}">
+        <button class="button update-button" onClick="window.location.reload();" type="submit" data-blogId={{post.id}}>Update post</button>
+        </a>
+    </div>
     </div>
     {{/each}}
     <div>
@@ -16,3 +20,4 @@
         </a>
     </div>
 </section>
+<script src="/js/deletePost.js"></script>

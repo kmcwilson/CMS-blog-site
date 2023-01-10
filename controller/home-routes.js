@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { User, Blog } = require('../models');
+const { User, Blog, Comment } = require('../models');
 const withAuth = require('../utils/auth')
 
 
@@ -46,21 +46,38 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 });
 
-router.get('/blog/add', withAuth, async(req, res)=> {
-    console.log('Hello')
-    try{
-        res.render('addPost', {
-            loggedIn: req.session.loggedIn
-           
+router.get('/blog/add', withAuth, async (req, res) => {
+    try {
+        res.render('addUpdatePost', {
+            loggedIn: req.session.loggedIn,
+            update: false
         })
     }
-    catch {
+    catch(err) {
         console.log(err);
-        res.render('error', {err, loggedIn: req.session.loggedIn})
+        res.render('error', { err, loggedIn: req.session.loggedIn })
     }
 });
 
-router.get('/blog/:id', withAuth, async (req, res) => {
+router.get('/blog/update/:id', withAuth, async (req, res) => {
+    try {
+        const dbBlog = await Blog.findByPk(req.params.id);
+        const blog = dbBlog.get({ plain: true });
+        res.render('addUpdatePost', {
+            loggedIn: req.session.loggedIn,
+            update: true,
+            blog
+        })
+    }
+    catch(err) {
+        console.log(err);
+        res.render('error', { err, loggedIn: req.session.loggedIn })
+    }
+});
+
+
+
+router.get('/blog/:id', async (req, res) => {
     try {
         const dbBlog = await Blog.findByPk(req.params.id, {
             include: [
@@ -70,12 +87,17 @@ router.get('/blog/:id', withAuth, async (req, res) => {
                         'name',
                     ],
                 },
+                {
+                    model: Comment,
+                    include:
+                        [User],
+                },
             ],
 
         });
+        console.log('blog', dbBlog);
         const blog = dbBlog.get({ plain: true });
         res.render('comments', { blog, loggedIn: req.session.loggedIn });
-        // }
     } catch (err) {
         console.log(err);
         res.render('error', { err });

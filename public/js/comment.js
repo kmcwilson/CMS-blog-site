@@ -1,10 +1,14 @@
 const submit = document.getElementById('add-comment');
 
 const addComment = async (event)=> {
-const comment = document.getElementByIf('blog-comment');
+    event.preventDefault();
+const comment = document.getElementById('blog-comment');
+const addCommentBtn = document.getElementById('add-comment');
+const blogId = addCommentBtn.dataset.blogid;
 
 if (comment) {
-    const response = await fetch ('', {
+
+    const response = await fetch (`/api/post/${blogId}`, {
         method: 'POST',
         body: JSON.stringify({
             comment: comment.value
@@ -19,4 +23,4 @@ if (comment) {
 }
 }
 
-submit.addEvenetListener('click', (addComment))
+submit.addEventListener('click', (addComment))
