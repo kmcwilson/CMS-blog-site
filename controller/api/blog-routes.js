@@ -61,7 +61,7 @@ router.post('/:id', withAuth, async (req, res) => {
     }
 })
 
-router.get('/:id/comment', async (req, res) => {
+router.get('/:id/comment', withAuth, async (req, res) => {
     try {
         const dbComment = await Comment.findAll({
 
