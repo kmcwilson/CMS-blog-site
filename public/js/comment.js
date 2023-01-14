@@ -15,7 +15,8 @@ if (comment) {
         headers: {'Content-Type': 'application/json'}
     })
     if (response.ok){
-        alert("Comment has been successfully added to this post!")
+        alert("Comment has been successfully added to this post!");
+        location.reload();
     } else {
         alert('Error occurred, failed to add comment')
     }

@@ -6,7 +6,7 @@ const deletePost = async (blogId) => {
         headers: { 'Content-Type': 'application/json' }
     })
     if (response.ok) {
-        alert("Post successfull deleted!")
+        alert("Post successfull deleted!");
     } else {
         alert('Error occurred, failed to delete post')
     }
