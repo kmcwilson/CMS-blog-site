@@ -38,7 +38,7 @@ Follow these steps to install the project:
 ## Screenshots of application
 
 ![Screenshot_20230114_125025](https://user-images.githubusercontent.com/110554091/212488441-b54c2549-4a71-49e4-8f56-63b06e0a7320.png)
-![Screenshot_20230114_125100](https://user-images.githubusercontent.com/110554091/212488556-eecdb250-b5cc-4c99-9964-9b947efcfa45.png)
+![Screenshot_20230114_125100](https://user-images.githubusercontent.com/110554091/212488596-aa25c136-44d2-4748-b9e3-352551a26167.png)
 ![Screenshot_20230114_125142](https://user-images.githubusercontent.com/110554091/212488475-df1db0ce-c722-47f4-9343-cf133c60fa4a.png)
 ![Screenshot_20230114_125339](https://user-images.githubusercontent.com/110554091/212488477-00da90a2-bae6-4e2a-8600-9ad01539cf79.png)
 
