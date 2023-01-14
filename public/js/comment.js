@@ -1,7 +1,6 @@
 const submit = document.getElementById('add-comment');
 
-const addComment = async (event)=> {
-    event.preventDefault();
+const addComment = async ()=> {
 const comment = document.getElementById('blog-comment');
 const addCommentBtn = document.getElementById('add-comment');
 const blogId = addCommentBtn.dataset.blogid;

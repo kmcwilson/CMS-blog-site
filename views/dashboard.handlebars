@@ -1,15 +1,15 @@
 <section>
-    <h1>Your Posts</h1>
+    <h1 class="title is-3">Your Posts</h1>
     {{#each posts as |post|}}
-    <div class="card">
+    <div class="card dashboard-content">
         <a href="/blog/{{id}}">
-            <header id="user-name">{{user.name}}</header>
+            <header class="post-title title is-5">{{post.title}}</header>
             <div class="card-content">
-                <p>{{post.post}}</p>
+                <p class="your-post">{{post.post}}</p>
         </a>
-        <button class="button delete-button" onClick="window.location.reload();" type="submit" data-blogId={{post.id}}>Delete post</button>
+        <button class="button delete-button dashboard-button" onClick="window.location.reload();" type="submit" data-blogId={{post.id}}>Delete post</button>
          <a href="blog/update/{{id}}">
-        <button class="button update-button" onClick="window.location.reload();" type="submit" data-blogId={{post.id}}>Update post</button>
+        <button class="button update-button dashboard-button" onClick="window.location.reload();" type="submit" data-blogId={{post.id}}>Update post</button>
         </a>
     </div>
     </div>

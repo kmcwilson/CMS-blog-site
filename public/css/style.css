@@ -1,0 +1,98 @@
+:root {
+    --dark: rgb(58, 53, 53);
+    --light: white;
+    --grey: grey;
+}
+
+html {
+    background-color: var(--grey);
+}
+
+.container {
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-text {
+    color: var(--dark);
+    font-weight:bold;
+    color: var(--dark);
+}
+
+.blog-text:hover{
+    color:var(--grey);
+}
+
+.blog-card {
+    padding: 20px;
+    margin: 10px;
+    border-style:double;
+    border-width:10px;
+    border-color: var(--grey);
+    border-radius: 10px;
+}
+#new-post {
+    padding: 30px;
+    font-weight:bold;
+    font-size: larger;
+}
+
+.dashboard-content{
+    margin: 20px;
+    padding: 10px;
+    border-style:double;
+    border-width:10px;
+    border-color: var(--grey);
+    border-radius: 10px;
+}
+
+.dashboard-button{
+    padding: 20px;
+    font-weight:bold;
+}
+
+.your-post{
+    margin-bottom: 20px;
+    font-weight:bold;
+    color: var(--dark);
+}
+
+.comment-section{
+    padding:20px
+}
+.comment-post{
+    color: var(--dark);
+    font-weight:bold;
+    color: var(--dark);
+}
+.comment-title{
+    color: var(--dark);
+    font-weight:bold;
+}
+#add-comment{
+    padding: 20px;
+    font-weight:bold;
+}
+
+.comment-list{
+    list-style-type:disc;
+    font-weight:bold;
+    color: var(--grey);
+
+}
+#blog-title{
+    margin-bottom:10px;
+}
+#blog-post{
+    margin-bottom:10px;
+}
+
+#add-blog{
+    padding: 20px;
+    font-weight:bold;
+}
+
+#update-blog{
+    padding: 20px;
+    font-weight:bold;
+}

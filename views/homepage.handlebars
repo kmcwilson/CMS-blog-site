@@ -1,12 +1,13 @@
 
-    <h1>Blog Forum</h1>
+    <h1 class='title is-3'>Blog Forum</h1>
     {{#each allBlogs as |blog|}}
-    <div class="card">
+    <div class="card is-centred blog-card">
         <a href="/blog/{{id}}">
-            <header id="user-name">{{user.name}}</header>
-            <div class ="card-content">
+            <header id="user-name" class="title is-4">{{user.name}}</header>
+            <div  class ="card-content blog-text">
                 <p>{{blog.post}}</p>
             </div>
         </a>
     </div>
     {{/each}}
+   

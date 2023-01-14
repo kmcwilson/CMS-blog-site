@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 
 });
 
-// Get help with this
+
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
         const dbBlogs = await Blog.findAll({ where: { user_id: req.session.userId } });
