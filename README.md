@@ -29,7 +29,7 @@ Follow these steps to install the project:
 * git clone [clone link from GitHUb]
 
 2. Install the following dependencies to run the applicaation properly:
-* SQL, Express.js and inquirer
+* SQL, Express.js and node.js
 
 3. Run the application with the following commands:
 * npm i
