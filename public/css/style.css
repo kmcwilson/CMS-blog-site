@@ -5,7 +5,10 @@
 }
 
 html {
-    background-image: url('AdobeStock_296774814.jpeg');
+    background-image: url('/images/AdobeStock_296774814.jpeg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
 }
 
 .descriptive-text {
@@ -38,6 +41,7 @@ html {
     border-width:10px;
     border-color: var(--grey);
     border-radius: 10px;
+    opacity: 0.95;
 }
 #new-post {
     padding: 30px;
@@ -66,7 +70,8 @@ html {
 }
 
 .comment-section{
-    padding:20px
+    padding:20px;
+    opacity:0.9;
 }
 .comment-post{
     color: var(--dark);
@@ -103,4 +108,18 @@ html {
 #update-blog{
     padding: 20px;
     font-weight:bold;
+}
+.dashboard-content{
+    opacity: 0.9;
+}
+.panel-block {
+   background-color:aliceblue;
+   font-family: 'Courier New', Courier, monospace; 
+   font-weight: bold;
+}
+.btn-primary {
+    padding:10px;
+    border-radius: 10px;
+    font-weight: bold;
+
 }
