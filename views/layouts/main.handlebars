@@ -5,16 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CMS Blog</title>
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
+
 <body>
-    <section class="hero is-dark">
+  <section class="hero is-dark">
     <div class="hero-head">
       <nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
         <div class="container">
           <div class="navbar-brand">
-            <h1 class="web-header title">The Tech Talk</h1>
+            <h1 class="web-header title">The Tech Talk
+              <p class="descriptive-text">Welcome to the Tech Talk, your place to discuss all things tech!</p>
+            </h1>
             <span class="navbar-burger" aria-label="menu" data-target="navbarMenuHeroA">
               <span></span>
               <span></span>
@@ -28,11 +31,11 @@
                 Dashboard
               </a>
               {{#if loggedIn}}
-                <button class="navbar-item button has-background-grey-light" id="logout">Logout</button>
+              <button class="navbar-item button has-background-grey-light" id="logout">Logout</button>
               {{else}}
-                <a class="navbar-item" href="/login">
-                  Log In
-                </a>             
+              <a class="navbar-item" href="/login">
+                Log In
+              </a>
               {{/if}}
             </div>
           </div>
@@ -40,10 +43,10 @@
       </nav>
     </div>
   </section>
-<div class="container is-justify-content-center">
+  <div class="container is-justify-content-center">
     {{{body}}}
 
-</div>
+  </div>
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}

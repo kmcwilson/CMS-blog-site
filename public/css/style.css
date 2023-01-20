@@ -5,9 +5,17 @@
 }
 
 html {
-    background-color: var(--grey);
+    background-image: url('AdobeStock_296774814.jpeg');
 }
 
+.descriptive-text {
+    font-size: medium;
+    padding-top: 20px;
+}
+#logout {
+    margin-top: 20px;
+    color: var(--dark)
+}
 .container {
     justify-content: center;
     align-items: center;
