@@ -26,7 +26,7 @@ Follow these steps to install the project:
 1. Clone the application from GitHub using the following command:
 * git clone [clone link from GitHUb]
 
-2. Install the following dependencies to run the applicaation properly:
+2. Install the following dependencies to run the application properly:
 * SQL, Express.js and node.js
 
 3. Run the application with the following commands:
